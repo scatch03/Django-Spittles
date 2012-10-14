@@ -1,0 +1,45 @@
+#spittler {
+    width: 240px;
+    height: 200px;
+    padding: 0.3em;
+    background-color: #fef1ec;
+    position: absolute;
+}
+
+#spittler h4 {
+    margin: 0;
+    padding: 0.3em;
+    text-align: center;
+}
+
+#spittler-form {
+    width: 240px;
+    height: 340px;
+    padding: 0.4em;
+    background-color: #deb887;
+    position: absolute;
+}
+
+#spittler-form h4 {
+    margin: 0 50px 0 0;
+    padding: 0.2em;
+    text-align: center;
+}
+
+.remove-spittle {
+    margin: 0 0 0 230px;
+    padding: 0;
+    font-size: 11px;
+}
+
+a:hover.remove-spittle {
+    background-color: red;
+}
+
+.spittle-icon {
+    margin: 2px;
+}
+
+textarea {
+    overflow: hidden;
+}

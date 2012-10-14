@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>Spittlers</title>
+    <!-- custom spittler styles -->
+    <link rel="stylesheet" href="static/css/spittler.css"/>
+    <!-- custom spittler scripts -->
+    <script src="static/js/spittler.js"></script>
+    <!-- jQueryUI styles -->
+    <link rel="stylesheet" href="static/jquery-ui/css/smoothness/jquery-ui.css"/>
+    <!-- jQuery and jQueryUI libraries-->
+    <script src="static/jquery.js"></script>
+    <script src="static/jquery-ui/js/jquery-ui.js"></script>
+    <!-- Underscore dependency -->
+    <script src="static/underscore.js"></script>
+</head>
+<body>
+{% load render_spittle %}
+{% load calculate_position %}
+
+{% for spittle in spittlers %}
+    {% render_spittle spittle forloop.counter0 %}
+{% empty %}
+    <p><i>No spittles as for yet.</i></p>
+{% endfor %}
+
+<div id="spittler-form" style="top:{{ spittlers|calculate_head_top:150 }} ;left:{{ spittlers|calculate_head_left:210 }};
+        display: none;">
+    <h4 class="ui-widget-header ui-corner-all">Add Spittle&nbsp;|&nbsp{{ spittles_count }}</h4>
+
+    <form action="/spittler/add/" enctype="multipart/form-data" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $(".ui-widget-content, #spittler-form").draggable();
+        $("input[type=submit]").button({label:'spit'});
+        $("#spittler-form").fadeIn(1000);
+
+        shakeIt();
+    });
+</script>
+</body>
+</html>

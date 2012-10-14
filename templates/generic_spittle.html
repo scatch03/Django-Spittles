@@ -1,0 +1,16 @@
+<span id="item-{{ spittle.identity }}">
+<div id="spittler" class="ui-widget-content"
+        {% block style %}
+        {% endblock %}>
+    <h4 class="ui-widget-header ui-corner-all">
+        {{ spittle.title }}
+    </h4>
+    {% if spittle.image %}
+        <img class="spittle-icon" src="/spittler/media/{{ spittle.identity }}" height="50px" width="50px"/>
+    {% endif %}
+    <p>{{ spittle.message|safe }}</p>
+    {% block delete %}
+        <a href="#" onclick="deleteSpittle('{{ spittle.identity }}')" class="remove-spittle">[x]</a>
+    {% endblock %}
+</div>
+</span>
